@@ -1,3 +1,6 @@
+:: Now you can build an image called vnc_ubuntu:
+docker build -t vnc_ubuntu .
+
 :: Run the container with this command:
 docker run -dt --rm --name vnc_ubuntu -p 5901:5901 vnc_ubuntu
 
@@ -12,3 +15,8 @@ docker run -dt --rm --name vnc_ubuntu -p 5901:5901 vnc_ubuntu
 :: Now you can use a VNC client in the host machine to access your container 
 :: via localhost:5901 (tested with RealVNC Viewer). 
 :: The password was defined in the Dockerfile as “password”.
+
+:: start vncviewer and point to 
+vncviewer.exe -connect localhost:5901 -password password
+
+pause
