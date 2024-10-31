@@ -21,7 +21,7 @@ docker run -dt --rm --name vnc_ubuntu -p 5901:5901 vnc_ubuntu
 :: via localhost:5901 (tested with RealVNC Viewer). 
 :: The password was defined in the Dockerfile as “password”.
 
-:: start vncviewer and point to 
+:: start vncviewer and point to localhost:5901
 vncviewer.exe -connect localhost:5901 -password password
 
 :END

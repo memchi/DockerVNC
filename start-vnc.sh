@@ -1,5 +1,5 @@
-# take care this file is formatted with LF (no CRLF)
 #!/bin/bash
+# take care this file is formatted with LF (no CRLF)
 
 echo 'Updating /etc/hosts file...'
 HOSTNAME=$(hostname)
