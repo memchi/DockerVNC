@@ -38,4 +38,7 @@ COPY start-vnc.sh start-vnc.sh
 RUN chmod +x start-vnc.sh
 
 # List the contents of the /app directory
-RUN ls -a /app
+RUN ls -Al /app
+
+# An ENTRYPOINT allows you to configure a container that will run as an executable.
+ENTRYPOINT ["/app/start-vnc.sh"]
