@@ -1,4 +1,4 @@
-# take care this file formatted with LF (no CRLF)
+# take care this file is formatted with LF (no CRLF)
 #!/bin/bash
 
 echo 'Updating /etc/hosts file...'

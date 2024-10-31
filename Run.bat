@@ -1,3 +1,8 @@
+@echo off
+echo --------------------------------------------------------------------------------
+echo %DATE% %TIME% %~nx0 for user: "%USERNAME%" on computer: "%COMPUTERNAME%" starting
+echo --------------------------------------------------------------------------------
+
 :: Now you can build an image called vnc_ubuntu:
 docker build -t vnc_ubuntu .
 
@@ -19,4 +24,8 @@ docker run -dt --rm --name vnc_ubuntu -p 5901:5901 vnc_ubuntu
 :: start vncviewer and point to 
 vncviewer.exe -connect localhost:5901 -password password
 
-pause
+:END
+echo --------------------------------------------------------------------------------
+echo %DATE% %TIME% %~nx0 for user: "%USERNAME%" on computer: "%COMPUTERNAME%" ended
+echo --------------------------------------------------------------------------------
+::pause
