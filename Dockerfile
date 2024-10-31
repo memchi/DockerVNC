@@ -1,5 +1,6 @@
 # Use an official Ubuntu base image
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
+FROM ubuntu
 
 # Avoid warnings by switching to noninteractive for the build process
 ENV DEBIAN_FRONTEND=noninteractive
@@ -21,6 +22,7 @@ RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && ap
 
 # install my stuff
 RUN apt-get install dos2unix --assume-yes
+#RUN apt-get install firefox --assume-yes
 
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
