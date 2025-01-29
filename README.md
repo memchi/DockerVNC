@@ -17,3 +17,5 @@ Once you have access to the container’s CLI:
 Now you can use a VNC client in the host machine to access your container
 via localhost:5901 (tested with RealVNC Viewer).
 The password was defined in the Dockerfile as “password”.
+
+<https://youtu.be/_udIBPKcimo>

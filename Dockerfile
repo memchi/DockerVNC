@@ -7,29 +7,29 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ENV USER=root
 
+# update all
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
 # Install XFCE, VNC server, dbus-x11, and xfonts-base
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    xfce4 \
-    xfce4-goodies \
-    tightvncserver \
-    dbus-x11 \
-    xfonts-base \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get install xfce4 xfce4-goodies -y --no-install-recommends
+#RUN apt-get install ubuntu-desktop -y 
+RUN apt-get install tightvncserver dbus-x11 xfonts-base -y --no-install-recommends
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# update all
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
 # install my stuff
 RUN apt-get install dos2unix --assume-yes
 #RUN apt-get install firefox --assume-yes
 
+# update all
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
 # Setup VNC server
-RUN mkdir /root/.vnc \
-    && echo "password" | vncpasswd -f > /root/.vnc/passwd \
-    && chmod 600 /root/.vnc/passwd
+RUN mkdir /root/.vnc
+RUN echo "password" | vncpasswd -f > /root/.vnc/passwd
+RUN chmod 600 /root/.vnc/passwd
 
 # Create an .Xauthority file
 RUN touch /root/.Xauthority
