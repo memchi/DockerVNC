@@ -10,18 +10,24 @@ ENV USER=root
 # update all
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
-# Install XFCE, VNC server, dbus-x11, and xfonts-base
-RUN apt-get install xfce4 xfce4-goodies -y --no-install-recommends
-#RUN apt-get install ubuntu-desktop -y 
-RUN apt-get install tightvncserver dbus-x11 xfonts-base -y --no-install-recommends
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# https://wiki.ubuntuusers.de/VNC/
+RUN apt-get install tightvncserver -y
 
-# update all
-RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
+# https://help.ubuntu.com/community/ServerGUI
+RUN apt-get install xauth -y
+RUN apt-get install xorg -y
+
+# https://wiki.ubuntuusers.de/Openbox/
+# https://help.ubuntu.com/community/Openbox
+RUN apt-get install openbox -y
+RUN apt-get install obconf -y
+#RUN apt-get install openbox-menu -y
+#RUN apt-get install obmenu -y
+RUN apt-get install xfonts-base -y
 
 # install my stuff
 RUN apt-get install dos2unix --assume-yes
-#RUN apt-get install firefox --assume-yes
+RUN apt-get install firefox --assume-yes
 
 # update all
 RUN apt-get autoclean -y && apt-get autoremove -y && apt-get -f install -y && apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get autoclean -y && apt-get autoremove -y
